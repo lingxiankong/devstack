@@ -26,6 +26,7 @@ function stack_install_service {
             export PIP_VIRTUAL_ENV=${PROJECT_VENV[$service]:-}
 
             # Install other OpenStack prereqs that might come from source repos
+            pip_install uwsgi
             install_oslo
             install_keystonemiddleware
         fi

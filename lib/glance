@@ -368,6 +368,8 @@ function start_glance {
     fi
 
     echo "Waiting for g-api ($GLANCE_SERVICE_HOST) to start..."
+    sleep 15
+    sudo systemctl restart devstack@g-api.service
     if ! wait_for_service $SERVICE_TIMEOUT $GLANCE_URL; then
         die $LINENO "g-api did not start"
     fi
